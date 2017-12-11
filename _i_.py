@@ -131,11 +131,9 @@ asciiArt = [
 ]
 
 def Main():
-    count = -1
     for i in range((len(asciiArt))):
         time.sleep(0.1)
-        count += 1
-        print (asciiArt[count])
+        print (asciiArt[i % len(asciiArt)])
 
 try:
     Main() ##Call main function
