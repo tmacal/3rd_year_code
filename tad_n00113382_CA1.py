@@ -4,7 +4,9 @@ def voltCalc():
     while True:
         try:
             i = float(input('*Enter current in Amps: '))
+            i = abs(i)
             r = float(input('*Enter resistance in Ohms: '))
+            r = abs(r)
             wrapper1()
             print('Result: ')
             return i * r, ' Volts ', ((i ** 2) * r), ' Watts'
@@ -16,7 +18,9 @@ def currentCalc():
     while True:
         try:
             v = float(input('*Enter voltage in Volts: '))
+            v = abs(v)
             r = float(input('*Enter resistance in Ohms: '))
+            r = abs(r)
             wrapper1()
             print('Result: ')
             return v / r, ' Amps ', (v ** 2 / r), ' Watts'
@@ -28,7 +32,9 @@ def resCalc():
     while True:
         try:
             i = float(input('*Enter current in Amps: '))
+            i = abs(i)
             v = float(input('*Enter voltage in Volts: '))
+            v =  abs(v)
             wrapper1()
             print('Result: ')
             return v / i, ' Ohms ', (v * i), ' Watts'
