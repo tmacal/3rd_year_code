@@ -138,11 +138,9 @@ def resistorCalculator():
             print("something went wrong")
 
 def Main():
-    count = -1
     for i in range((len(asciiArt))):
         time.sleep(0.3)
-        count += 1
-        print (asciiArt[count])
+        print (asciiArt[i % len(asciiArt)])
     while True:
         try:
             baseOptionsStr = (' || '.join(map(str, baseOptions)))
