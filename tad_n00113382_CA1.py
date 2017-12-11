@@ -3,47 +3,38 @@ import time
 def voltCalc():
     while True:
         try:
-            i = float(input('*Enter current in Amps: '))
-            i = abs(i)
-            r = float(input('*Enter resistance in Ohms: '))
-            r = abs(r)
+            i = abs(float(input('*Enter current in Amps: ')))
+            r = abs(float(input('*Enter resistance in Ohms: ')))
             wrapper1()
             print('Result: ')
             return i * r, ' Volts ', ((i ** 2) * r), ' Watts'
-        except Exception as e:
+        except Exception:
             print("Input should be a number")
             continue
 
 def currentCalc():
     while True:
         try:
-            v = float(input('*Enter voltage in Volts: '))
-            v = abs(v)
-            r = float(input('*Enter resistance in Ohms: '))
-            r = abs(r)
+            v = abs(float(input('*Enter voltage in Volts: ')))
+            r = abs(float(input('*Enter resistance in Ohms: ')))
             wrapper1()
             print('Result: ')
             return v / r, ' Amps ', (v ** 2 / r), ' Watts'
-        except Exception as e:
+        except Exception:
             print("Input should be a number")
             continue
 
 def resCalc():
     while True:
         try:
-            i = float(input('*Enter current in Amps: '))
-            i = abs(i)
-            v = float(input('*Enter voltage in Volts: '))
-            v =  abs(v)
+            i = abs(float(input('*Enter current in Amps: ')))
+            v = abs(float(input('*Enter voltage in Volts: ')))
             wrapper1()
             print('Result: ')
             return v / i, ' Ohms ', (v * i), ' Watts'
-        except Exception as e:
+        except Exception:
             print("Input should be a number")
             continue
-##Planned separate function for power - included in ohmsLaw calculations instead
-# def powerCalc(v, i, r):
-#     return (v * i) or (v ** 2 / r) or ((i ** 2) * r) ##TODO: logic here - same as ohmslawtest?
 
 baseOptions= [
     'resistorval',
@@ -86,7 +77,7 @@ def ohmsLaw():
     wrapper()
     print(nestedOptionsStr)
     wrapper()
-    choice = input("Enter one of the above options: ")
+    choice = (input("Enter one of the above options: ").casefold())
     wrapper()
 
     if choice in nestedOptions:
@@ -103,7 +94,7 @@ def resistorCalculator():
     resArray = []
     while True:
         try:
-            num1 = input ("Enter first colour: ") ##wait for input
+            num1 = input("Enter first colour: ").casefold() ##wait for input
             if num1 in colours:
                 num1 = colours[(num1)]
                 resArray.append(num1) ##append input val to array if in dictionary
@@ -113,7 +104,7 @@ def resistorCalculator():
         except ValueError:
             print("something went wrong")
         try:
-            num2 = input ("Enter second colour: ")
+            num2 = input("Enter second colour: ").casefold()
             if num2 in colours:
                 num2 = colours[(num2)]
                 resArray.append(num2)
@@ -123,7 +114,7 @@ def resistorCalculator():
         except ValueError:
             print("something went wrong")
         try:
-            num3 = input ("Enter third colour: ")
+            num3 = input("Enter third colour: ").casefold()
             if num3 in colours:
                 num3 = colours[(num3)]
                 resArray.append((num3)*str(0))
@@ -147,8 +138,7 @@ def Main():
             wrapper()
             print (baseOptionsStr)
             wrapper()
-            option = input('Enter one of the above options: ')
-            option = option.casefold() ##Make case insensitive
+            option = input('Enter one of the above options: ').casefold() ##Make case insensitive
             if option in baseOptions:
                 wrapper1()
                 print('You have selected: ' + option)
@@ -161,7 +151,6 @@ def Main():
             print("selection not in list")
             continue
 
-##Main loop
 try:
     Main() ##Call main function
 except KeyboardInterrupt:
